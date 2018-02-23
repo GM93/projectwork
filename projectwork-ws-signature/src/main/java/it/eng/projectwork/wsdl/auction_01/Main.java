@@ -5,6 +5,7 @@ import java.net.URL;
 
 import javax.xml.ws.BindingProvider;
 
+import it.eng.projectwork.xsd.auction_01.AuctionType;
 import it.eng.projectwork.xsd.auction_01.CreateAuctionRequestType;
 import it.eng.projectwork.xsd.auction_01.CreateAuctionResponseType;
 
@@ -18,7 +19,12 @@ public class Main {
 		prov.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, "giacompa");
 		
 		
-		CreateAuctionResponseType r = as.createAuction(new CreateAuctionRequestType());
+		AuctionType auction = new AuctionType();
+		auction.setTitle("CIAO");
+		
+		CreateAuctionRequestType parameter = new CreateAuctionRequestType();
+		parameter.setAuction(auction);
+		CreateAuctionResponseType r = as.createAuction(parameter);
 	}
 
 }
