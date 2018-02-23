@@ -5,6 +5,24 @@ INSERT INTO userrole(username,role_code)VALUES ('giacompa','USER');
 INSERT INTO userrole(username,role_code)VALUES ('giacompa','ADMIN');
 INSERT INTO userrole(username,role_code)VALUES ('lugraci','USER');
 
+INSERT INTO userrole(username,role_code)VALUES ('AlexandroVassallo','USER');
+INSERT INTO userrole(username,role_code)VALUES ('AlexandroVassallo','ADMIN');
+INSERT INTO userrole(username,role_code)VALUES ('SalvoBattaglia','USER');
+INSERT INTO userrole(username,role_code)VALUES ('SalvoBattaglia','ADMIN');
+INSERT INTO userrole(username,role_code)VALUES ('GiuseppeMinore','USER');
+INSERT INTO userrole(username,role_code)VALUES ('GiuseppeMinore','ADMIN');
+INSERT INTO userrole(username,role_code)VALUES ('FedericoAnnaloro','USER');
+INSERT INTO userrole(username,role_code)VALUES ('FedericoAnnaloro','ADMIN');
+
+INSERT INTO security(username,password)values('AlexandroVassallo','AlexandroVassallo');
+INSERT INTO security(username,password)values('SalvoBattaglia','SalvoBattaglia');
+INSERT INTO security(username,password)values('GiuseppeMinore','GiuseppeMinore');
+INSERT INTO security(username,password)values('FedericoAnnaloro','FedericoAnnaloro');
+
+
+INSERT INTO security(username,password)values('giacompa','giacompa');
+INSERT INTO security(username,password)values('lugraci','lugraci');
+
 INSERT INTO security(username,password)values('giacompa','giacompa');
 INSERT INTO security(username,password)values('lugraci','lugraci');
 
@@ -13,15 +31,15 @@ INSERT INTO userx(username, address, city, postcode, email, timebirth) VALUES ('
 
 INSERT INTO supplier(username,info)values('giacompa','Info fatturazione');
 
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 1');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 2');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 3');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 4');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 5');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 6');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 7');
-INSERT INTO product(oid,descrition)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 8');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 1');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 2');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 3');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 4');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 5');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 6');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 7');
+INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 8');
 
 --alter table product add column description varchar(255);
---update product set description = descrition;
---alter table product drop column descrition; 
+--update product set description = description;
+--alter table product drop column description; 
