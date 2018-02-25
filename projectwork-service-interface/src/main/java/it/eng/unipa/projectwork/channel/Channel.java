@@ -11,4 +11,6 @@ public interface Channel {
 	public boolean isOpen();
 	
 	public String getUsername();
+	
+
 }

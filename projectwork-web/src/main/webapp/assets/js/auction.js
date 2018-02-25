@@ -37,17 +37,21 @@ app.controller('auctionCtrl', function($rootScope,$scope, $http, $interval,$time
 			
 			var websocketChannelActive = false;
 			var emailChannelActive = false;
-			 
+			var telegramChannelActive = false;
  			for (var i = 0; i < data.length; i++) {
  			     if(data[i].type == 'WEBSOCKET'){
 					  websocketChannelActive = true;
 				  } else if(data[i].type == 'EMAIL'){
 					  emailChannelActive = true; 
 				  }
+				  else if(data[i].type == 'TELEGRAM'){
+					  telegramChannelActive = true; 
+				  }
  			}
 			
 			 $scope.websocketChannelActive = websocketChannelActive;
 			 $scope.emailChannelActive = emailChannelActive;
+			 $scope.telegramChannelActive=telegramChannelActive;
 		});	
 		
 	};

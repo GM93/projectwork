@@ -109,15 +109,23 @@ tr:nth-child(even) {
 		  	<th>Abbonamento a canali di notifica</th>
 		  	<td>
 		  		<div>
-		  			<span>notifiche push sul browser:</span>
+		  			<span>Notifiche push sul browser:</span>
 		  			<button ng-if="!websocketChannelActive" ng-click="registerChannel('WEBSOCKET')">registrati</button>
 		  			<button ng-if="websocketChannelActive" ng-click="deregisterChannel('WEBSOCKET')">annulla registrazione</button>
 		  		</div>
 		  		<div>
-		  			<span>notifiche via email: </span>
+		  			<span>Notifiche via email: </span>
 		  			<button ng-if="!emailChannelActive" ng-click="registerChannel('EMAIL')">registrati</button>		  
 		  			<button ng-if="emailChannelActive" ng-click="deregisterChannel('EMAIL')">annulla registrazione</button>
-		  		</div>		  	
+		  		</div>	
+		  		
+		  		
+		  		<div>
+		  			<span>Notifiche via Telegram: </span>
+		  			<button ng-if="!telegramChannelActive" ng-click="registerChannel('TELEGRAM')">Registrati</button>		  
+		  			<button ng-if="telegramChannelActive" ng-click="deregisterChannel('TELEGRAM')">Annulla registrazione</button>
+		  		</div>		  		
+		  			  	
 		  	</td>
 		  </tr>
 		  

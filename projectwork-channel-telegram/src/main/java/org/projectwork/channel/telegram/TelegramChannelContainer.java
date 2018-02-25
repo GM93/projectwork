@@ -1,5 +1,4 @@
-package it.eng.unipa.projectwork.channel.email;
-
+package org.projectwork.channel.telegram;
 
 
 import javax.ejb.DependsOn;
@@ -11,46 +10,45 @@ import it.eng.unipa.projectwork.channel.AbstractChannelContainer;
 import it.eng.unipa.projectwork.email.SendMail;
 import it.eng.unipa.projectwork.model.User;
 import it.eng.unipa.projectwork.service.UserService;
+import it.eng.unipa.projectwork.telegram.SendTelegram;
 
 @Singleton
 @Startup
 @DependsOn(value="MultiChannelContainer")
-public class EmailChannelContainer extends AbstractChannelContainer<EmailChannel>{
-	
+public class TelegramChannelContainer   extends AbstractChannelContainer<TelegramChannel> // da implementare 
+{
 	
 	@EJB
-	SendMail sendMail;
+	SendTelegram sendTelegram;
 	
 	@EJB
 	UserService userService;
 	
-	public static final String EMAIL = "EMAIL";
+	public static final String TELEGRAM = "TELEGRAM";
 
 	
-	public EmailChannelContainer() {
-	}
+	public TelegramChannelContainer() {}
 	
 	@Override
 	public String getType() {
-		return EMAIL;
+		return "TELEGRAM";
 	}
 	
 	@Override
-	protected void beforeSend(EmailChannel t) {
-		t.setEmailSend(this.sendMail);
+	protected void beforeSend(TelegramChannel t) {
+		t.setTelegramSend(this.sendTelegram);
 	}
 	
 	@Override
-	protected void afterSend(EmailChannel t) {
-		t.setEmailSend(null);
+	protected void afterSend(TelegramChannel t) {
+		t.setTelegramSend(null);
 	}
 	
 	@Override
 	public void add(String username, Long auctionOid) {
 		User user = userService.getUser(username);
-		String email = user.getEmail();
-		super.add(new EmailChannel(username, email));
+		String chat_ID = user.getChat_ID();
+		super.add(new TelegramChannel(username, chat_ID));
 		super.add(username, auctionOid);
 	}
-	
 }
