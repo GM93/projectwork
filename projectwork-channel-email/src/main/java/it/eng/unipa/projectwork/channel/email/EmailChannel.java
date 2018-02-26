@@ -29,8 +29,22 @@ public class EmailChannel extends AbstractChannel {
 		if(sendMail==null){
 			throw new RuntimeException("sendemail is null");
 		}
+		
+		
 		String subject = "New bid for Auction "+message.getAuctionOid();
 		String body = "Dear <b>"+getUsername()+"</b><br/>the auction <b>"+"</b> has a new event: <b style=\"color:red\">"+message.toJson()+"</b>";
+		System.out.println("DEVO INVIARE l'EMAIL a "+getUsername()+" DICENDO CHE AUCTION"+ message.getAuctionOid()+" è stata rilancata di"+message.toJson());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		try {
 			sendMail.sendMail(new Message(subject, body, TYPE.HTML), this.email);
 		} catch (MailNotSendException e) {

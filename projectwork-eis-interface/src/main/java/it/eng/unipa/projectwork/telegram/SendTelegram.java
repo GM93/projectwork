@@ -1,6 +1,7 @@
 package it.eng.unipa.projectwork.telegram;
 import javax.ejb.Local;
 
+import it.eng.unipa.projectwork.email.Message;
 import it.eng.unipa.projectwork.telegram.exception.TelegramNotSendException;
 
 

@@ -18,7 +18,7 @@ public class User extends AEntity<String>{
 	
 	@Id
 	private String username;
-	private String chat_ID;
+	private String chatId;
 	private String email;
 	
 	@Temporal(TemporalType.DATE)
@@ -29,13 +29,12 @@ public class User extends AEntity<String>{
 	
 	
 	
-	public String getChat_ID() {
-		return chat_ID;
+	public String getChatId() {
+		return chatId;
 	}
-
-
-	public void setChat_ID(String chat_ID) {
-		this.chat_ID = chat_ID;
+	
+	public void setChatId(String chatId) {
+		this.chatId = chatId;
 	}
 	
 	public String getOid() {

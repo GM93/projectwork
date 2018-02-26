@@ -48,3 +48,7 @@ INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 
 --alter table product add column description varchar(255);
 --update product set description = description;
 --alter table product drop column description; 
+
+
+
+select * from userx;

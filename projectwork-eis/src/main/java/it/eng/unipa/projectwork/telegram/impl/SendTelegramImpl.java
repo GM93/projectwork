@@ -1,6 +1,7 @@
 package it.eng.unipa.projectwork.telegram.impl;
-import javax.annotation.Resource;
+
 import javax.ejb.Stateless;
+
 
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
@@ -17,6 +18,19 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 	
 	@Override
 	public void sendTelegram(MessageTelegram message, String destination) throws TelegramNotSendException {
+		
+		try{
+			
+			 SendMessage sendMessageTelegram = new SendMessage(); //c'era mailsession
+			 sendMessageTelegram.setChatId("26674639")// destination = Chat_ID
+	    	 .setText(message.getTextTelegram());
+	    	 sendMessage(sendMessageTelegram); 
+			
+		}catch (Exception e) {
+			throw new TelegramNotSendException(e);
+		}
+		
+		
 		try{
 			
 			 SendMessage sendMessageTelegram = new SendMessage(); //c'era mailsession
@@ -27,6 +41,10 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		}catch (Exception e) {
 			throw new TelegramNotSendException(e);
 		}
+		
+		
+		
+		
 	}
 	
 	@Override
@@ -46,6 +64,8 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		}catch (Exception e) {
 			throw new MailNotSendException(e);
 		}*/
+		
+	
 	}
 
 	@Override
@@ -75,12 +95,10 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		    		 e.printStackTrace();
 		    	 }
 		    }
-		
 	}
 
 	@Override
 	public String getBotToken() {
-		// TODO Auto-generated method stub
 		return "540859545:AAG79hoC16EZbYD4imqErquAiqM5Ih2kKuU";
 	}
 }

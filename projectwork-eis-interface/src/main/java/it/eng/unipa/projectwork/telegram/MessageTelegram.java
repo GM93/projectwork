@@ -6,13 +6,11 @@ public class MessageTelegram {
 	private String TextTelegram;
 	
 	
-	public MessageTelegram(String textTelegram) {
+	public MessageTelegram(String textTelegram,String chatTelegramID) {
 		super();
 		this.chatTelegramID = chatTelegramID;
 		TextTelegram = textTelegram;
 	}
-	
-	
 	
 
 	public String getTextTelegram() {
