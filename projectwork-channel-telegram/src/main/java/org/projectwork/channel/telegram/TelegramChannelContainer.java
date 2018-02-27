@@ -40,6 +40,7 @@ public class TelegramChannelContainer   extends AbstractChannelContainer<Telegra
 	
 	
 /*	@Override
+	
   	public void register() {
 		
 		//inizializziamo le api
@@ -50,7 +51,7 @@ public class TelegramChannelContainer   extends AbstractChannelContainer<Telegra
 				//registrazione bot
 				try
 				{
-					botsApi.registerBot(new SendTelegramImpl());
+					botsApi.registerBot(new TelegramBotFunction());
 				}
 				catch(TelegramApiException e)
 				{
@@ -59,8 +60,8 @@ public class TelegramChannelContainer   extends AbstractChannelContainer<Telegra
 		
 		// TODO Auto-generated method stub
 		super.register();
-	}
-	*/
+	}*/
+	
 	public static final String TELEGRAM = "TELEGRAM";
 
 	

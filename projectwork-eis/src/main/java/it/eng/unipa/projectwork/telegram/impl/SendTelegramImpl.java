@@ -76,7 +76,7 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 
 	@Override
 	public void onUpdateReceived(Update update) {
-		 if (update.getMessage().getText().equals("/start")) 
+		/* if (update.getMessage().getText().equals("/start")) 
 			{
 		    	 long chatIdTelegram= update.getMessage().getChat().getId();
 		    	 String telegramUsername = update.getMessage().getChat().getUserName();
@@ -94,7 +94,7 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		    	 {
 		    		 e.printStackTrace();
 		    	 }
-		    }
+		    }*/
 	}
 
 	@Override
