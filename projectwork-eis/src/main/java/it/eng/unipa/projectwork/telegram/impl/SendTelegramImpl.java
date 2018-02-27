@@ -22,7 +22,7 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		try{
 			
 			 SendMessage sendMessageTelegram = new SendMessage(); //c'era mailsession
-			 sendMessageTelegram.setChatId("26674639")// destination = Chat_ID
+			 sendMessageTelegram.setChatId(destination)// destination = Chat_ID ex forzatura con chatID preimpostato
 	    	 .setText(message.getTextTelegram());
 	    	 sendMessage(sendMessageTelegram); 
 			
@@ -31,7 +31,7 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 		}
 		
 		
-		try{
+	/*	try{
 			
 			 SendMessage sendMessageTelegram = new SendMessage(); //c'era mailsession
 			 sendMessageTelegram.setChatId(destination)// destination = Chat_ID
@@ -42,7 +42,7 @@ public class SendTelegramImpl extends TelegramLongPollingBot implements SendTele
 			throw new TelegramNotSendException(e);
 		}
 		
-		
+	*/	
 		
 		
 	}

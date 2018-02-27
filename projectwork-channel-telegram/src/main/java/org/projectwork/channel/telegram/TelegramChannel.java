@@ -6,6 +6,7 @@ import it.eng.unipa.projectwork.telegram.MessageTelegram;
 import it.eng.unipa.projectwork.telegram.SendTelegram;
 import it.eng.unipa.projectwork.telegram.exception.TelegramNotSendException;
 
+
 public class TelegramChannel extends AbstractChannel{
 
 	
@@ -29,8 +30,7 @@ public class TelegramChannel extends AbstractChannel{
 		}
 	
 		
-		String body ="New bid for Auction "+message.getAuctionOid() +"\n "
-		+"Dear <b>"+getUsername()+"</b><br/>the auction <b>"+"</b> has a new event: <b style=\"color:red\">"+message.toJson()+"</b>";
+		String body = "Ciao " + getUsername() + "!!!\nNuova offerta di €" + message.getPrezzo() + " per l'asta " + message.getAuctionOid() +"\n";
 		
 		
 		try {

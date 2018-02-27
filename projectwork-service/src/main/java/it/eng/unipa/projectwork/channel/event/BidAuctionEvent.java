@@ -28,4 +28,10 @@ public class BidAuctionEvent extends AuctionEvent {
 		return "{\"type\":\""+getType()+"\",\"version\":"+getVersion()+",\"auctionOid\":"+getAuctionOid()+",\"pricing\":"+getPricing()+"}";
 	}
 	
+	@Override
+	public String getPrezzo() {
+		return this.pricing.toString();
+	}
+
+	
 }

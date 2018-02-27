@@ -15,7 +15,7 @@ import it.eng.unipa.projectwork.email.SendMail;
 import it.eng.unipa.projectwork.model.User;
 import it.eng.unipa.projectwork.service.UserService;
 import it.eng.unipa.projectwork.telegram.SendTelegram;
-import it.eng.unipa.projectwork.telegram.impl.SendTelegramImpl;
+//import it.eng.unipa.projectwork.telegram.impl.SendTelegramImpl;
 
 
 @Singleton
@@ -35,9 +35,12 @@ public class TelegramChannelContainer   extends AbstractChannelContainer<Telegra
 	sarebe fare un altra classe che si chiama singleton che si chiama recieve , al posto di telegramchannelcontainer e quando ci arrivano i messaggi facciamo sostanzialmente appendmessage sul topic, 
 	poi ci spiega come poterlo isolare per condividere gli event via email via browser e cosi via, l idea è se faccio un offerta via bot teelgram deve mandare la notifica via email e via browser e questo si fa mettendo il messaggio nel topic listener che ascolta.
 	*/
-	@Override
 	
-	public void register() {
+	
+	
+	
+/*	@Override
+  	public void register() {
 		
 		//inizializziamo le api
 				ApiContextInitializer.init();
@@ -57,7 +60,7 @@ public class TelegramChannelContainer   extends AbstractChannelContainer<Telegra
 		// TODO Auto-generated method stub
 		super.register();
 	}
-	
+	*/
 	public static final String TELEGRAM = "TELEGRAM";
 
 	

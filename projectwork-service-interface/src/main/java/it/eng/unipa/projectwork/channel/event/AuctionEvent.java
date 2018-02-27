@@ -15,7 +15,7 @@ public abstract class AuctionEvent implements Serializable{
 		this.type = type;
 	}
 	
-
+	
 	public Long getAuctionOid() {
 		return auctionOid;
 	}
@@ -27,6 +27,12 @@ public abstract class AuctionEvent implements Serializable{
 	
 	public String toJson() {
 		return "{type:\""+getType()+",\"auctionOid\":"+getAuctionOid()+"}";
+	}
+	
+	
+	
+	public String getPrezzo() {
+		return " ";
 	}
 
 }
