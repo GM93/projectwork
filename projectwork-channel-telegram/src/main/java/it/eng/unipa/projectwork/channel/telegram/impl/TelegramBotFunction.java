@@ -54,12 +54,8 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 		    	 System.out.println("Username: " + telegramUsername);
 		    	 SendMessage welcomeMessage = new SendMessage();
 		    	 welcomeMessage.setChatId(chatIdTelegram)
-		    	 .setText("Benvenuto su AsteOnline Spa ");
-		    	 
-		    	 
-		    	 
-		    	 
-		    	 
+		    	 .setText("Benvenuto su AsteOnline Spa\nConnessione avviata con successo!");
+
 		    	 try
 		    	 {
 		    		 sendMessage(welcomeMessage);
@@ -73,9 +69,22 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 			long chatIdTelegram= update.getMessage().getChat().getId();
 	    	 String usernameTelegram = update.getMessage().getChat().getUserName();
 	    	 User user = userService.getUserFromUsernameTelegram(usernameTelegram);
-	    	 
+		    telegramChannelContainer.add(user.getUsername(),new Long(testoRicevuto[1]));
 			
-			telegramChannelContainer.add(user.getUsername(),new Long(testoRicevuto[1]));
+			 SendMessage replyMessage = new SendMessage();
+			 replyMessage.setChatId(chatIdTelegram)
+	    	 .setText("Stai osservando le offerte sull'asta con ID "+ testoRicevuto[1]);
+			
+		   	 try
+	    	 {
+	    		 sendMessage(replyMessage);
+	    	 }
+	    	 catch(TelegramApiException e)
+	    	 {
+	    		 e.printStackTrace();
+	    	 }
+			
+			
 		}
 		 
 		else if (testoRicevuto[0].equals("/rilancia")) 
@@ -94,7 +103,7 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 				 
 				boolean esito = addBid(oidAuction, telegramUsername, bid);
 				 if(esito) {
-					 bidMessage.setChatId(chatIdTelegram).setText("Hai rilanciato: €"+bid + " per l'asta: "+ oidAuction);
+					 bidMessage.setChatId(chatIdTelegram).setText("Hai rilanciato €"+bid + " per l'asta con ID  "+ oidAuction);
 				 }else {
 					 bidMessage.setChatId(chatIdTelegram).setText("Errore nell'offerta");
 				 }
@@ -110,6 +119,33 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 		    		 e.printStackTrace();
 		    	 }
 		    }
+		else if (testoRicevuto[0].equals("/stop")) 
+		{
+	    	 
+		
+			
+		
+			long chatIdTelegram= update.getMessage().getChat().getId();
+	    	String telegramUsername = update.getMessage().getChat().getUserName();
+	    	
+	    	User user = userService.getUserFromUsernameTelegram(telegramUsername);
+	    	
+	    	telegramChannelContainer.remove(new TelegramChannel(user.getUsername(), chatIdTelegram));
+	    	
+	    	 System.out.println("Username: " + telegramUsername);
+	    	 SendMessage stopMessage = new SendMessage();
+	    	 stopMessage.setChatId(chatIdTelegram)
+	    	 .setText("Hai interrotto la comunicazione con successo!  ");
+	    	 
+	    	 try
+	    	 {
+	    		 sendMessage(stopMessage);
+	    	 }
+	    	 catch(TelegramApiException e)
+	    	 {
+	    		 e.printStackTrace();
+	    	 }
+	    }
 		 
 		 
 		 

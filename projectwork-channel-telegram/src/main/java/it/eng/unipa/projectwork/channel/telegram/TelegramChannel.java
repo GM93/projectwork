@@ -30,7 +30,7 @@ public class TelegramChannel extends AbstractChannel{
 		}
 	
 		
-		String body = "Ciao " + getUsername() + "!!!\nNuova offerta di €" + message.getPrezzo() + " per l'asta " + message.getAuctionOid() +"\n";
+		String body = "Ciao " + getUsername() + "!!!\nNuova offerta di €" + message.getPrezzo() + " per l'asta con ID " + message.getAuctionOid() +"\n";
 		
 		
 		try {
