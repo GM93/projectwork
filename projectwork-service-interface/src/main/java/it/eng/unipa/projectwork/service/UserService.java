@@ -12,5 +12,7 @@ public interface UserService {
 	public List<User> allUsers();
 	
 	public User getUser(String username);
+	
+	public User getUserFromUsernameTelegram(String chatID);
 
 }

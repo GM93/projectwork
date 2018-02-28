@@ -52,3 +52,8 @@ INSERT INTO product(oid,description)VALUES (nextval('PRODUCT_ID_SEQ'), 'Product 
 
 
 select * from userx;
+
+
+
+
+alter table userx drop column chat_id;

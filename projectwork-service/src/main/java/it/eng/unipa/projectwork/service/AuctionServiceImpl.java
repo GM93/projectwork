@@ -81,6 +81,14 @@ public class AuctionServiceImpl extends AbstractService implements AuctionServic
 		}
 		
 	}
+	
+	@Override
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void addBid(long oidAuction, String username, BigDecimal bid) {
+		Auction a = dao.load(Auction.class,oidAuction);
+		addBid(oidAuction, a.getVersion(), username, bid);
+		
+	}
 
 	
 	@Override

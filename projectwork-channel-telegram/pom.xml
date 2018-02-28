@@ -26,23 +26,29 @@
     	<groupId>it.eng.unipa.projectwork</groupId>
     	<artifactId>projectwork-eis-interface</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
+    	<scope>provided</scope>
     </dependency>
     <dependency>
     	<groupId>javax</groupId>
     	<artifactId>javaee-api</artifactId>
     </dependency>
-    <dependency>
-    	<groupId>it.eng.unipa.projectwork</groupId>
-    	<artifactId>projectwork-service</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    	<type>ejb</type>
-    </dependency>
     
      <dependency>
 	    <groupId>org.telegram</groupId>
 	    <artifactId>telegrambots</artifactId>
-	    <version>3.6</version>
 	</dependency>
+     <dependency>
+     	<groupId>it.eng.unipa.projectwork</groupId>
+     	<artifactId>projectwork-service-interface</artifactId>
+     	<version>0.0.1-SNAPSHOT</version>
+     	<scope>provided</scope>
+     </dependency>
+     <dependency>
+     	<groupId>it.eng.unipa.projectwork</groupId>
+     	<artifactId>projectwork-service</artifactId>
+     	<version>0.0.1-SNAPSHOT</version>
+     	<type>ejb</type>
+     </dependency>
   </dependencies>
   <packaging>ejb</packaging>
   

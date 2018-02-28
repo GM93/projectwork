@@ -14,13 +14,8 @@ import javax.ejb.EJB;
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 
-import org.telegram.telegrambots.ApiContextInitializer;
-import org.telegram.telegrambots.TelegramBotsApi;
-import org.telegram.telegrambots.exceptions.TelegramApiException;
-
 import it.eng.unipa.projectwork.channel.event.AuctionEvent;
 import it.eng.unipa.projectwork.channel.event.ClosedAuctionEvent;
-import it.eng.unipa.projectwork.singleton.TelegramBotFunction;
 
 
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
@@ -34,22 +29,6 @@ public abstract class AbstractChannelContainer<T extends Channel> implements Cha
 	public void register(){
 		System.out.println("--------->registro "+this);
 		this.multiChannelContainer.register(this);
-	
-		//inizializziamo le api
-		ApiContextInitializer.init();
-		//creazione dell oggetto telegrambotsapi
-		TelegramBotsApi botsApi= new TelegramBotsApi();
-		
-		//registrazione bot
-		try
-		{
-			botsApi.registerBot(new TelegramBotFunction());
-		}
-		catch(TelegramApiException e)
-		{
-			e.printStackTrace();
-		}
-		
 		
 	}
 	

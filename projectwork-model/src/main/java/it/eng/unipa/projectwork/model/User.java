@@ -18,7 +18,7 @@ public class User extends AEntity<String>{
 	
 	@Id
 	private String username;
-	private String chatId;
+	private String usernameTelegram;
 	private String email;
 	
 	@Temporal(TemporalType.DATE)
@@ -29,12 +29,12 @@ public class User extends AEntity<String>{
 	
 	
 	
-	public String getChatId() {
-		return chatId;
+	public String getUsernameTelegram() {
+		return usernameTelegram;
 	}
 	
-	public void setChatId(String chatId) {
-		this.chatId = chatId;
+	public void setUsernameTelegram(String usernameTelegram) {
+		this.usernameTelegram = usernameTelegram;
 	}
 	
 	public String getOid() {

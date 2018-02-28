@@ -25,6 +25,8 @@ public interface AuctionService {
 	public <R> R loadAuction(long oid,Function<Auction,R> f);
 	
 	public void addBid(long oidAuction,long versionAuction,String username,BigDecimal bid);
+	
+	public void addBid(long oidAuction,String username,BigDecimal bid);
 
 	public Image loadImage(long oidAuction, long oidImage);
 
