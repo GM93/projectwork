@@ -31,8 +31,6 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 		this.telegramChannelContainer = telegramChannelContainer;
 	}
 	
-	
-	
 	@Override
 	public void onUpdateReceived(Update update) {
 		
@@ -40,10 +38,6 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 		
 		if (update.getMessage().getText().equals("/start")) 
 			{
-		    	 
-			
-				
-			
 				long chatIdTelegram= update.getMessage().getChat().getId();
 		    	String telegramUsername = update.getMessage().getChat().getUserName();
 		    	
@@ -65,6 +59,38 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 		    		 e.printStackTrace();
 		    	 }
 		    }
+		
+		else if (testoRicevuto[0].equals("/rilancia")) 
+		{
+		 
+	    	 long chatIdTelegram= update.getMessage().getChat().getId();
+	    	 String telegramUsername = update.getMessage().getChat().getUserName();
+	 
+	    
+	    	 //TODO implementare una politica dicontrollo, se il prezzo inserito è minore di quello corrente (anche il Version), deve inviare un messaggio di errore
+	    	 System.out.println("Username: " + telegramUsername);
+	    	 SendMessage bidMessage = new SendMessage();
+	    	 String bid = testoRicevuto[2];
+			 String oidAuction = testoRicevuto[1];
+			 
+			boolean esito = addBid(oidAuction, telegramUsername, bid);
+			 if(esito) {
+				 bidMessage.setChatId(chatIdTelegram).setText("Hai rilanciato €"+bid + " per l'asta con ID  "+ oidAuction);
+			 }else {
+				 bidMessage.setChatId(chatIdTelegram).setText("Errore nell'offerta");
+			 }
+	    	 
+	    	 
+	    	 try
+	    	 {
+	    		 sendMessage(bidMessage);
+	    		 
+	    	 }
+	    	 catch(TelegramApiException e)
+	    	 {
+	    		 e.printStackTrace();
+	    	 }
+	    }
 		else if (testoRicevuto[0].equals("/osserva")) {
 			long chatIdTelegram= update.getMessage().getChat().getId();
 	    	 String usernameTelegram = update.getMessage().getChat().getUserName();
@@ -86,45 +112,27 @@ public class TelegramBotFunction extends TelegramLongPollingBot {
 			
 			
 		}
-		 
-		else if (testoRicevuto[0].equals("/rilancia")) 
-			{
-			 
-			 
-		    	 long chatIdTelegram= update.getMessage().getChat().getId();
-		    	 String telegramUsername = update.getMessage().getChat().getUserName();
-		 
-		    
-		    	 //TODO implementare una politica dicontrollo, se il prezzo inserito è minore di quello corrente (anche il Version), deve inviare un messaggio di errore
-		    	 System.out.println("Username: " + telegramUsername);
-		    	 SendMessage bidMessage = new SendMessage();
-		    	 String bid = testoRicevuto[2];
-				 String oidAuction = testoRicevuto[1];
-				 
-				boolean esito = addBid(oidAuction, telegramUsername, bid);
-				 if(esito) {
-					 bidMessage.setChatId(chatIdTelegram).setText("Hai rilanciato €"+bid + " per l'asta con ID  "+ oidAuction);
-				 }else {
-					 bidMessage.setChatId(chatIdTelegram).setText("Errore nell'offerta");
-				 }
-		    	 
-		    	 
-		    	 try
-		    	 {
-		    		 sendMessage(bidMessage);
-		    		 
-		    	 }
-		    	 catch(TelegramApiException e)
-		    	 {
-		    		 e.printStackTrace();
-		    	 }
-		    }
+		else if (testoRicevuto[0].equals("/non_osservare")) {
+			long chatIdTelegram= update.getMessage().getChat().getId();
+	    	 String usernameTelegram = update.getMessage().getChat().getUserName();
+	    	 User user = userService.getUserFromUsernameTelegram(usernameTelegram);
+		    telegramChannelContainer.remove(user.getUsername(),new Long(testoRicevuto[1]));
+			
+			 SendMessage replyMessage = new SendMessage();
+			 replyMessage.setChatId(chatIdTelegram)
+	    	 .setText("Hai smesso correttamente di osservare le offerte sull'asta con ID "+ testoRicevuto[1]);
+			
+		   	 try
+	    	 {
+	    		 sendMessage(replyMessage);
+	    	 }
+	    	 catch(TelegramApiException e)
+	    	 {
+	    		 e.printStackTrace();
+	    	 }
+		}
 		else if (testoRicevuto[0].equals("/stop")) 
 		{
-	    	 
-		
-			
-		
 			long chatIdTelegram= update.getMessage().getChat().getId();
 	    	String telegramUsername = update.getMessage().getChat().getUserName();
 	    	
